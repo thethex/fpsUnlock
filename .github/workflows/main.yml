@@ -5,6 +5,10 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
     steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        
       - name: run
         shell: cmd
         run: | 
