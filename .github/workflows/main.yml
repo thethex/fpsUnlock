@@ -1,0 +1,22 @@
+on:
+  push
+  
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: windows-latest
+    steps:
+      - name: build
+      	run: |
+      	  call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+      	  devenv unlockfps.sln /ReBuild
+      - run: echo "🎉 Deploy to release 🎉"
+      - name: release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          prerelease: ${{env.PRERELEASE}}
+          name: ${{env.RELEASE-NAME}}
+          tag_name: ${{env.TAG}}
+          files: |
+              x64/Debug/unlockfps.exe
