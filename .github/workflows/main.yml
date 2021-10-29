@@ -9,7 +9,8 @@ jobs:
         shell: cmd
         run: | 
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-          "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"  unlockfps.sln /ReBuild
+          dir
+          "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.com" unlockfps.sln /ReBuild
       - run: echo "🎉 Deploy to release 🎉"
       - name: release
         uses: softprops/action-gh-release@v1
