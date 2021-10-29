@@ -6,7 +6,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: run
-        shell: bash
+        shell: cmd
         run: | 
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
           devenv unlockfps.sln /ReBuild
