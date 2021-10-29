@@ -5,8 +5,11 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: windows-latest
     steps:
-      - run: call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
-      - run: devenv unlockfps.sln /ReBuild
+      - name: run
+        shell: bash
+        run: | 
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+          devenv unlockfps.sln /ReBuild
       - run: echo "🎉 Deploy to release 🎉"
       - name: release
         uses: softprops/action-gh-release@v1
