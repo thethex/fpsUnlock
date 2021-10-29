@@ -21,8 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          prerelease: ${{env.PRERELEASE}}
-          name: ${{env.RELEASE-NAME}}
-          tag_name: ${{env.TAG}}
+          name: auto-build
+          tag_name: latest
           files: |
             x64/Debug/unlockfps.exe
